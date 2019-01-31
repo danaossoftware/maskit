@@ -14,7 +14,7 @@ if ($results && $results->num_rows > 0) {
     echo -2;
     return;
 }
-$confirmCode = substr(uniqid(), 0, 4);
+$confirmCode = md5(uniqid(rand(), true));
 $confirmCode = strtoupper($confirmCode);
 $userId = uniqid();
 $c->query("INSERT INTO users (id, email, phone, password, name, confirm_code) VALUES ('" . $userId . "', '" . $email . "', '" . $phone . "', '" . $password . "', '" . $name . "', '" . $confirmCode . "')");
