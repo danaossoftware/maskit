@@ -26,7 +26,7 @@ sendMail($email, "Konfirmasi email Maskit", "<html>
 		<style>
 		@font-face {
 			font-family: 'Palanquin';
-			src: url('Palanquin.ttf');
+			src: url('http://sainsgo.com/maskit/Palanquin.ttf');
 		}
 		
 		html {
@@ -45,7 +45,7 @@ sendMail($email, "Konfirmasi email Maskit", "<html>
 	</head>
 	<body>
 		<div style=\"width: 100%; display: flex; flex-flow: column nowrap; position: relative;\">
-			<img style=\"position: absolute; left: 0; top: 0;\" width=\"100%\" height=\"400px\" src=\"mail_bg.jpg\">
+			<img style=\"position: absolute; left: 0; top: 0;\" width=\"100%\" height=\"400px\" src=\"http://sainsgo.com/maskit/mail_bg.jpg\">
 			<div style=\"margin-top: 50px; position: absolute; left: 0; top: 0; width: 100%; display: flex; flex-flow: column nowrap; align-items: center;\">
 				<div style=\"color: white; font-size: 16px;\">Konfirmasi email Maskit</div>
 				<div style=\"color: white; font-size: 30px; margin-top: 10px; margin-left: 50px; margin-right: 50px; text-align: center;\">Konfirmasikan email Anda untuk menyelesaikan pendaftaran Maskit</div>
