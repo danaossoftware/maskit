@@ -1,9 +1,10 @@
 <?php
 include 'db.php';
-$deviceId = $_GET["device_id"];
+include 'common.php';
+$deviceId = $_POST["device_id"];
 $results = $c->query("SELECT * FROM sessions WHERE device_id='" . $deviceId . "'");
 if ($results && $results->num_rows > 0) {
-	echo 0;
+	echo returnCode(0);
 } else {
-	echo -1;
+	echo returnCode(-1);
 }
