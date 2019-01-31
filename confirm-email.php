@@ -1,7 +1,7 @@
 <?php
 include 'db.php';
-$email = $_GET["email"];
-$confirmCode = $_GET["confirm_code"];
+$email = $_POST["email"];
+$confirmCode = $_POST["confirm_code"];
 $results = $c->query("SELECT * FROM users WHERE email='" . $email . "'");
 if ($results && $results->num_rows > 0) {
     $row = $results->fetch_assoc();
