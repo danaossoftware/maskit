@@ -21,6 +21,7 @@ $confirmCode = strtoupper($confirmCode);
 $userId = uniqid();
 $c->query("INSERT INTO users (id, email, phone, password, name, confirm_code) VALUES ('" . $userId . "', '" . $email . "', '" . $phone . "', '" . $password . "', '" . $name . "', '" . $confirmCode . "')");
 //sendMail($email, "Konfirmasi email Maskit", "Masukkan kode konfirmasi untuk menyelesaikan pendaftaran aplikasi Maskit berikut:<br/><br/><div style='font-size: 30px; font-weight: bold; color: black;'>" . $confirmCode . "</div>");
+$confirmCode = $confirmCode[0] . " " . $confirmCode[1] . " " . $confirmCode[2] . " " . $confirmCode[3];
 sendMail($email, "Konfirmasi email Maskit", "<html>
 	<head>
 		<style>
@@ -39,10 +40,10 @@ sendMail($email, "Konfirmasi email Maskit", "<html>
 		</style>
 	</head>
 	<body>
-					<div style=\"color: #888888; width: 100%; display: flex; justify-content: center; text-align: center;\">
+					<div style=\"color: #888888;\">
 						Masukkan kode konfirmasi Maskit berikut untuk menyelesaikan pendaftaran Maskit. Konfirmasi ini hanya dilakukan sekali, untuk memastikan bahwa email yang Anda kirimkan adalah email yang sebenarnya. Jangan balas pesan ini. Jika email ini bukan untuk Anda, abaikan email ini.
 					</div>
-					<div style=\"color: #888888; width: 100%; display: flex; justify-content: center; text-align: center; color: #06c7a8; font-size: 40px; font-weight: bold;\">
+					<div style=\"color: #888888; color: #06c7a8; font-size: 40px; font-weight: bold;\">
 						" . $confirmCode . "
 					</div>
 	</body>
