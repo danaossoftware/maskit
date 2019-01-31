@@ -1,5 +1,5 @@
 <?php
 
-function returnCode(code) {
+function returnCode($code) {
 	return "{\"respose_code\": " . code . "}";
 }
