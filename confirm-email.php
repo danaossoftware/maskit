@@ -8,7 +8,7 @@ if ($results && $results->num_rows > 0) {
     if ($row["confirm_code"] == $confirmCode) {
 		$c->query("UPDATE users SET confirmed=1 WHERE email='" . $email . "'");
 		session_start();
-		$_SESSION["maskit_user_id"] = row["id"];
+		$_SESSION["maskit_user_id"] = $row["id"];
         echo 0;
     } else {
         echo -1;
