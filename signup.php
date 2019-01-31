@@ -1,5 +1,6 @@
 <?php
 include 'db.php';
+include 'mail.php';
 $email = $_GET["email"];
 $phone = $_GET["phone"];
 $password = $_GET["password"];
@@ -19,5 +20,5 @@ $confirmCode = substr($confirmCode, 0, 4);
 $confirmCode = strtoupper($confirmCode);
 $userId = uniqid();
 $c->query("INSERT INTO users (id, email, phone, password, name, confirm_code) VALUES ('" . $userId . "', '" . $email . "', '" . $phone . "', '" . $password . "', '" . $name . "', '" . $confirmCode . "')");
-mail($email, "Konfirmasi email Maskit", "Masukkan kode konfirmasi untuk menyelesaikan pendaftaran aplikasi Maskit berikut:<br/><br/><span style='font-size: 30px; font-weight: bold; color: black;'>"+$confirmCode+"</span>");
+sendMail($email, "Konfirmasi email Maskit", "Masukkan kode konfirmasi untuk menyelesaikan pendaftaran aplikasi Maskit berikut:<br/><br/><span style='font-size: 30px; font-weight: bold; color: black;'>"+$confirmCode+"</span>");
 echo 0;
