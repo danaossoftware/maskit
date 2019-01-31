@@ -4,6 +4,7 @@ $email = $_GET["email"];
 $phone = $_GET["phone"];
 $password = $_GET["password"];
 $name = $_GET["name"];
+echo $email . "<br/>" . $phone . "<br/>" . $password . "<br/>" . $name;
 $results = $c->query("SELECT * FROM users WHERE email='" . $email . "'");
 if ($results && $results->num_rows > 0) {
     echo -1;
