@@ -42,7 +42,7 @@ sendMail($email, "Konfirmasi email Maskit", "<html>
 					<div style=\"color: #888888; width: 100%; display: flex; justify-content: center; text-align: center;\">
 						Masukkan kode konfirmasi Maskit berikut untuk menyelesaikan pendaftaran Maskit. Konfirmasi ini hanya dilakukan sekali, untuk memastikan bahwa email yang Anda kirimkan adalah email yang sebenarnya. Jangan balas pesan ini. Jika email ini bukan untuk Anda, abaikan email ini.
 					</div>
-					<div style=\"width: 100%; display: flex; justify-content: center; color: #06c7a8; font-size: 40px; font-weight: bold;\">
+					<div style=\"width: 100%; display: flex; flex-flow: row nowrap; justify-content: center; align-items: center; align-content: center; color: #06c7a8; font-size: 40px; font-weight: bold;\">
 						0 1 7 B
 					</div>
 	</body>
