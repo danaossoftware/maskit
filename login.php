@@ -3,7 +3,7 @@ include 'db.php';
 $email = $_GET["email"];
 $password = $_GET["password"];
 $rememberMe = $_GET["remember_me"];
-$deviceId = $_GET["device-id"];
+$deviceId = $_GET["device_id"];
 $results = $c->query("SELECT * FROM users WHERE email='" . $email . "'");
 if ($results && $results->num_rows > 0) {
     $row = $results->fetch_assoc();
