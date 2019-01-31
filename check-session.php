@@ -1,7 +1,7 @@
 <?php
 include 'db.php';
-$ip = $_SERVER["REMOTE_ADDR"];
-$results = $c->query("SELECT * FROM sessions WHERE ip='" . $ip . "'");
+$deviceId = $_GET["device-id"];
+$results = $c->query("SELECT * FROM sessions WHERE device_id='" . $deviceId . "'");
 if ($results && $results->num_rows > 0) {
 	echo 0;
 } else {
