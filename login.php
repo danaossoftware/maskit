@@ -13,12 +13,8 @@ if ($results && $results->num_rows > 0) {
             echo -3;
             return;
         }
-        session_start();
-        $_SESSION["maskit_user_id"] = $row["id"];
-		if ($rememberMe == "true") {
-			$params = session_get_cookie_params();
-			setcookie(session_name(), $_COOKIE[session_name()], time() + 60*60*24*14, $params["path"], $params["domain"], $params["secure"], $params["httponly"]);
-		}
+		$ip = $_SERVER["REMOTE_ADDR"];
+		$c->query("INSERT INTO sessions (id, ip, last_active) VALUES ('" . uniqid() . "', '" . $ip . "', " . round(microtime(true)*1000) . ")");
         echo 0;
     }
 } else {

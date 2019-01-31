@@ -1,7 +1,9 @@
 <?php
-session_start();
-if (isset($_SESSION["maskit_user_id"]) && $_SESSION["maskit_user_id"] != "") {
-    echo 0;
+include 'db.php';
+$ip = $_SERVER["REMOTE_ADDR"];
+$results = $c->query("SELECT * FROM sessions WHERE ip='" . $ip . "'");
+if ($results && $results->num_rows > 0) {
+	echo 0;
 } else {
-    echo -1;
+	echo -1;
 }
