@@ -1,7 +1,7 @@
 <?php
 include 'db.php';
 include 'common.php';
-$totalPoints = (int)$_POST["total_points"];
+$totalPoints = $_POST["total_points"];
 $imgURL = $_POST["img_url"];
 $imgURL = utf8_decode(urldecode($imgURL));
 $userId = getUserID();
