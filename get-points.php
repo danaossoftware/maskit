@@ -1,7 +1,7 @@
 <?php
 include 'db.php';
-include 'common.php';
-$userId = getUserID();
+session_start();
+$userId = $_SESSION["maskit_user_id"];
 $results = $c->query("SELECT * FROM reports WHERE user_id='" . $userId . "'");
 if ($results && $results->num_rows > 0) {
 	$totalPoints = 0;
