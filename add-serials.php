@@ -1,4 +1,9 @@
 <?php
-$serialsJSON = "{\"name\": \"Dana\"}";
-$serials = json_decode($serialsJSON, true);
-echo $serials->name;
+$json = '{
+    "title": "JavaScript: The Definitive Guide",
+    "author": "David Flanagan",
+    "edition": 6
+}';
+$book = json_decode($json);
+// access title of $book object
+echo $book->title;
