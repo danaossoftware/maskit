@@ -16,5 +16,5 @@ if ($results && $results->num_rows > 0) {
 }
 $c->query("INSERT INTO reports (id, user_id, proof, points, date, descr) VALUES ('" . uniqid() . "', '" . $userId . "', '" . $imgURL . "', " . $totalPoints . ", " . $currentMillis . ", '" . $descr . "')");
 $c->query("INSERT INTO lifetime (id, filter_id, user_id, start_time) VALUES ('" . uniqid() . "', '" . $filterCode . "', '" . $userId . "', " . round(microtime(true) * 1000) . ")");
-$c->query("INSERT INTO user_serials (id, user_id, filter_code) VALUES ('" . uniqid() . "', '" . $userId . "', '" . $filterCode . "')");
+$c->query("INSERT INTO user_serials (id, user_id, filter_code, date) VALUES ('" . uniqid() . "', '" . $userId . "', '" . $filterCode . "', " . $currentMillis . ")");
 echo 0;
