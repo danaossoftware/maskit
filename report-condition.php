@@ -13,8 +13,9 @@ $currentMillis = round(microtime(true)*1000);
 $results = $c->query("SELECT * FROM reports WHERE user_id='" . $userId . "' ORDER BY date DESC LIMIT 1");
 if ($results && $results->num_rows > 0) {
 	$row = $results->fetch_assoc();
+	$desc = $row["descr"];
 	$distance = $currentMillis - $row["date"];
-	if ($distance < 1*24*60*60*1000) {
+	if ((strpos($desc, "Melaporkan keadaan") === 0) && $distance < 1*24*60*60*1000) {
 		echo -1;
 		return;
 	}
