@@ -9,5 +9,5 @@ if ($results && $results->num_rows > 0) {
 	echo -1;
 	return;
 }
-$c->query("INSERT INTO user_serials (id, user_id, mask_code, filter_code) VALUES ('" . uniqid() . "', '" . $userId . "', '" . $maskCode . "', '" . $filterCode . "'");
+$c->query("INSERT INTO user_serials (id, user_id, mask_code, filter_code) VALUES ('" . uniqid() . "', '" . $userId . "', '" . $maskCode . "', '" . $filterCode . "')");
 echo 0;
