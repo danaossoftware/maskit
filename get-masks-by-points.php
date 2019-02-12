@@ -1,6 +1,7 @@
 <?php
 include 'db.php';
 $points = intval($_GET["points"]);
+echo $points;
 $results = $c->query("SELECT * FROM masks WHERE points >= " . $points);
 $masks = [];
 if ($results && $results->num_rows > 0) {
