@@ -22,4 +22,11 @@ if ($results && $results->num_rows > 0) {
 }
 $c->query("INSERT INTO reports (id, user_id, proof, points, date, descr) VALUES ('" . uniqid() . "', '" . $userId . "', '" . $imgURL . "', " . $totalPoints . ", " . $currentMillis . ", '" . $descr . "')");
 $c->query("INSERT INTO lifetime (id, mask_id, filter_id, user_id, start_time) VALUES ('" . uniqid() . "', '" . $maskCode . "', '" . $filterCode . "', '" . $userId . "', " . round(microtime(true) * 1000) . ")");
+$results = $c->query("SELECT * FROM users WHERE id='" . $userId . "'");
+if ($results && $results->num_rows > 0) {
+    $row = $results->fetch_assoc();
+    $points = $row["points"];
+    $points += $totalPoints;
+    $c->query("UPDATE users SET points=" . $points . " WHERE id='" . $userId . "'");
+}
 echo 0;
