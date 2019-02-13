@@ -23,8 +23,6 @@ $userId = uniqid();
 $c->query("INSERT INTO users (id, email, phone, password, name, confirm_code) VALUES ('" . $userId . "', '" . $email . "', '" . $phone . "', '" . $password . "', '" . $name . "', '" . $confirmCode . "')");
 //sendMail($email, "Konfirmasi email Maskit", "Masukkan kode konfirmasi untuk menyelesaikan pendaftaran aplikasi Maskit berikut:<br/><br/><div style='font-size: 30px; font-weight: bold; color: black;'>" . $confirmCode . "</div>");
 $confirmCode = $confirmCode[0] . " " . $confirmCode[1] . " " . $confirmCode[2] . " " . $confirmCode[3];
-session_start();
-$_SESSION["maskit_user_id"] = $userId;
 sendMail($email, "Konfirmasi email Maskit", "<html>
 	<head>
 		<style>
