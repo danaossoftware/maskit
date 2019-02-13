@@ -18,6 +18,7 @@ if ($results && $results->num_rows > 0) {
 		/*$ip = $_SERVER["REMOTE_ADDR"];
 		$c->query("INSERT INTO sessions (id, ip, user_id, last_active, device_id) VALUES ('" . uniqid() . "', '" . $ip . "', '" . $row["id"] . "', " . round(microtime(true)*1000) . ", '" . $deviceId . "')");
         echo returnCode(0);*/
+        session_id("maskit");
 		session_start();
 		$_SESSION["maskit_user_id"] = $row["id"];
 		echo returnCode(0);

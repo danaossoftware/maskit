@@ -7,6 +7,7 @@ $totalPoints = $_POST["total_points"];
 $imgURL = $_POST["img_url"];
 $imgURL = utf8_decode(urldecode($imgURL));
 $descr = $_POST["desc"];
+session_id("maskit");
 session_start();
 $userId = $_SESSION["maskit_user_id"];
 $currentMillis = round(microtime(true)*1000);

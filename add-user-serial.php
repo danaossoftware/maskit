@@ -2,6 +2,7 @@
 include 'db.php';
 $maskCode = $_POST["mask_code"];
 $filterCode = $_POST["filter_code"];
+session_id("maskit");
 session_start();
 $userId = $_SESSION["maskit_user_id"];
 if (!empty($filterCode)) {

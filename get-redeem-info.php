@@ -1,5 +1,6 @@
 <?php
 include 'db.php';
+session_id("maskit");
 session_start();
 $userId = $_SESSION["maskit_user_id"];
 $results = $c->query("SELECT * FROM reports WHERE user_id='" . $userId . "'");
