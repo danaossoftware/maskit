@@ -8,12 +8,12 @@ $password = $_POST["password"];
 $name = $_POST["name"];
 $results = $c->query("SELECT * FROM users WHERE email='" . $email . "'");
 if ($results && $results->num_rows > 0) {
-    echo returnCode(-1);
+	echo -1;
     return;
 }
 $results = $c->query("SELECT * FROM users WHERE phone='" . $phone . "'");
 if ($results && $results->num_rows > 0) {
-    echo returnCode(-2);
+	echo -2;
     return;
 }
 $confirmCode = md5(uniqid(rand(), true));
@@ -51,4 +51,4 @@ sendMail($email, "Konfirmasi email Maskit", "<html>
 					</div>
 	</body>
 </html>");
-echo returnCode(0);
+echo 0;
