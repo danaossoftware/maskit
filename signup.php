@@ -8,7 +8,7 @@ $password = $_POST["password"];
 $name = $_POST["name"];
 $results = $c->query("SELECT * FROM users WHERE email='" . $email . "'");
 if ($results && $results->num_rows > 0) {
-	echo -1;
+	echo $email;
     return;
 }
 $results = $c->query("SELECT * FROM users WHERE phone='" . $phone . "'");
