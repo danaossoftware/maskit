@@ -2,6 +2,8 @@
 include 'db.php';
 $maskId = $_POST["mask_id"];
 $filterId = $_POST["filter_id"];
+echo $filterId;
+return;
 if ($maskId != "") {
 	$results = $c->query("SELECT * FROM masks WHERE mask_code='" . $maskId . "'");
 } else if ($filterId != "") {
