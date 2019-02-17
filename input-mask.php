@@ -25,4 +25,5 @@ if ($results && $results->num_rows > 0) {
     $points += $totalPoints;
     $c->query("UPDATE users SET points=" . $points . " WHERE id='" . $userId . "'");
 }
+$c->query("UPDATE serials SET used=1 WHERE serial='" . $maskCode . "'");
 echo 0;
