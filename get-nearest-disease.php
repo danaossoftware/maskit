@@ -15,9 +15,9 @@ if ($results && $results->num_rows > 0) {
 			$lat = $row2["latitude"];
 			$lng = $row2["longitude"];
 			$distance = distance($latitude, $longitude, $lat, $lng, 6371000);
-			if ($distance <= 25000) {
+			//if ($distance <= 25000) {
 				array_push($diseases, $row2);
-			}
+			//}
 		}
 	}
 }
