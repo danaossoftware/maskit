@@ -7,6 +7,7 @@ $totalPoints = $_POST["total_points"];
 $imgURL = $_POST["img_url"];
 $imgURL = utf8_decode(urldecode($imgURL));
 $descr = $_POST["desc"];
+$diseases = $_POST["disease_ids"];
 session_id("maskit");
 session_start();
 $userId = $_SESSION["maskit_user_id"];
@@ -29,5 +30,11 @@ if ($results && $results->num_rows > 0) {
     $points = $row["points"];
     $points += $totalPoints;
     $c->query("UPDATE users SET points=" . $points . " WHERE id='" . $userId . "'");
+}
+if ($diseases != "") {
+    $diseaseArray = explode(",", $diseases);
+    for ($i = 0; $i < sizeof($diseaseArray); $i++) {
+        $c->query("INSERT INTO diseases (id, user_id, disease_id, disease_count) VALUES ('" . uniqid() . "', '" . $userId . "', '" . $diseaseArray[$i] . "', 1)");
+    }
 }
 echo 0;
