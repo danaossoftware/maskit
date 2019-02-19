@@ -1,7 +1,8 @@
 <?php
 include 'db.php';
 $code = $_GET["code"];
-$results = $c->query("SELECT * FROM serials WHERE serial='" . $code . "'");
+$type = $_GET["type"];
+$results = $c->query("SELECT * FROM serials WHERE serial='" . $code . "' AND type='" . $type . "'");
 if ($results && $results->num_rows > 0) {
 	$row = $results->fetch_assoc();
 	/*$used = $row["used"];
