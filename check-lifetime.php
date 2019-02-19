@@ -1,7 +1,7 @@
 <?php
 include 'db.php';
 $userId = $_POST["user_id"];
-$results = $c->query("SELECT * FROM user_serials WHERE user_id='" . $userId . "'");
+$results = $c->query("SELECT * FROM user_serials WHERE user_id='" . $userId . "' AND filter_code<>''");
 $serials = [];
 if ($results && $results->num_rows > 0) {
 	while ($row = $results->fetch_assoc()) {
