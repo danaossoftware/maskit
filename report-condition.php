@@ -36,5 +36,8 @@ if ($diseases != "") {
     for ($i = 0; $i < sizeof($diseaseArray); $i++) {
         $c->query("INSERT INTO diseases (id, user_id, disease_id, disease_count) VALUES ('" . uniqid() . "', '" . $userId . "', '" . $diseaseArray[$i] . "', 1)");
     }
+	$c->query("UPDATE users SET diseased=1 WHERE id='" . $userId . "'");
+} else {
+	$c->query("UPDATE users SET diseased=0 WHERE id='" . $userId . "'");
 }
 echo 0;

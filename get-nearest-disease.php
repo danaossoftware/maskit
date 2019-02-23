@@ -9,7 +9,7 @@ $diseases = [];
 if ($results && $results->num_rows > 0) {
 	while ($row = $results->fetch_assoc()) {
 		$userId = $row["user_id"];
-		$results2 = $c->query("SELECT * FROM users WHERE id='" . $userId . "'");
+		$results2 = $c->query("SELECT * FROM users WHERE id='" . $userId . "' AND diseased=1");
 		if ($results2 && $results2->num_rows > 0) {
 			$row2 = $results2->fetch_assoc();
 			$lat = $row2["latitude"];
