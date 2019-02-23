@@ -17,7 +17,7 @@ if ($results && $results->num_rows > 0) {
 	$row = $results->fetch_assoc();
 	$desc = $row["descr"];
 	$distance = $currentMillis - $row["date"];
-	if ((strpos($desc, "Melaporkan keadaan") === 0) && $distance < 1*24*60*60*1000) {
+	if ((strpos($desc, "Melaporkan keadaan sakit") === 0) && $distance < 1*24*60*60*1000) {
 		echo -1;
 		return;
 	}
