@@ -11,10 +11,10 @@ if ($results && $results->num_rows > 0) {
     if ($row["password"] != $password) {
         echo returnCode(-2);
     } else {
-        if ($row["confirmed"] == 0) {
+        /*(if ($row["confirmed"] == 0) {
             echo returnCode(-3);
             return;
-        }
+        }*/
 		/*$ip = $_SERVER["REMOTE_ADDR"];
 		$c->query("INSERT INTO sessions (id, ip, user_id, last_active, device_id) VALUES ('" . uniqid() . "', '" . $ip . "', '" . $row["id"] . "', " . round(microtime(true)*1000) . ", '" . $deviceId . "')");
         echo returnCode(0);*/
