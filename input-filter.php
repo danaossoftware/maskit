@@ -8,7 +8,8 @@ $imgURL = utf8_decode(urldecode($imgURL));
 $descr = $_POST["desc"];
 session_id("maskit");
 session_start();
-$userId = $_SESSION["maskit_user_id"];
+//$userId = $_SESSION["maskit_user_id"];
+$userId = $_POST["user-id"];
 $currentMillis = round(microtime(true)*1000);
 $results = $c->query("SELECT * FROM user_serials WHERE filter_code='" . $filterCode . "'");
 if ($results && $results->num_rows > 0) {

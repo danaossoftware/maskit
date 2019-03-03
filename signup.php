@@ -2,6 +2,7 @@
 include 'db.php';
 include 'mail.php';
 include 'common.php';
+$userId = $_POST["id"];
 $email = $_POST["email"];
 $phone = $_POST["phone"];
 $password = $_POST["password"];
@@ -11,15 +12,9 @@ if ($results && $results->num_rows > 0) {
 	echo -1;
     return;
 }
-$results = $c->query("SELECT * FROM users WHERE phone='" . $phone . "'");
-if ($results && $results->num_rows > 0) {
-	echo -2;
-    return;
-}
 $confirmCode = md5(uniqid(rand(), true));
 $confirmCode = substr($confirmCode, 0, 4);
 $confirmCode = strtoupper($confirmCode);
-$userId = uniqid();
 $c->query("INSERT INTO users (id, email, phone, password, name, confirm_code) VALUES ('" . $userId . "', '" . $email . "', '" . $phone . "', '" . $password . "', '" . $name . "', '" . $confirmCode . "')");
 //sendMail($email, "Konfirmasi email Maskit", "Masukkan kode konfirmasi untuk menyelesaikan pendaftaran aplikasi Maskit berikut:<br/><br/><div style='font-size: 30px; font-weight: bold; color: black;'>" . $confirmCode . "</div>");
 $confirmCode = $confirmCode[0] . " " . $confirmCode[1] . " " . $confirmCode[2] . " " . $confirmCode[3];

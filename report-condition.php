@@ -10,7 +10,8 @@ $descr = $_POST["desc"];
 $diseases = $_POST["disease_ids"];
 session_id("maskit");
 session_start();
-$userId = $_SESSION["maskit_user_id"];
+//$userId = $_SESSION["maskit_user_id"];
+$userId = $_POST["user-id"];
 $currentMillis = round(microtime(true)*1000);
 $results = $c->query("SELECT * FROM reports WHERE user_id='" . $userId . "' ORDER BY date DESC LIMIT 1");
 if ($results && $results->num_rows > 0) {
