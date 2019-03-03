@@ -12,36 +12,10 @@ if ($results && $results->num_rows > 0) {
 	echo -1;
     return;
 }
-$confirmCode = md5(uniqid(rand(), true));
-$confirmCode = substr($confirmCode, 0, 4);
-$confirmCode = strtoupper($confirmCode);
-$c->query("INSERT INTO users (id, email, phone, password, name, confirm_code) VALUES ('" . $userId . "', '" . $email . "', '" . $phone . "', '" . $password . "', '" . $name . "', '" . $confirmCode . "')");
+$confirmCodes = md5(uniqid(rand(), true));
+$confirmCodes = substr($confirmCodes, 0, 4);
+$confirmCodes = strtoupper($confirmCodes);
+$c->query("INSERT INTO users (id, email, phone, password, name, confirm_code) VALUES ('" . $userId . "', '" . $email . "', '" . $phone . "', '" . $password . "', '" . $name . "', '" . $confirmCodes . "')");
 //sendMail($email, "Konfirmasi email Maskit", "Masukkan kode konfirmasi untuk menyelesaikan pendaftaran aplikasi Maskit berikut:<br/><br/><div style='font-size: 30px; font-weight: bold; color: black;'>" . $confirmCode . "</div>");
-$confirmCode = $confirmCode[0] . " " . $confirmCode[1] . " " . $confirmCode[2] . " " . $confirmCode[3];
-sendMail($email, "Konfirmasi email Maskit", "<html>
-	<head>
-		<style>
-		html {
-			width: 100%;
-			height: 100%;
-		}
-		
-		body {
-			width: 100%;
-			height: 100%;
-			overflow-x: hidden;
-			margin: 0 auto;
-			font-family: Arial;
-		}
-		</style>
-	</head>
-	<body>
-					<div style=\"color: #888888;\">
-						Masukkan kode konfirmasi Maskit berikut untuk menyelesaikan pendaftaran Maskit. Konfirmasi ini hanya dilakukan sekali, untuk memastikan bahwa email yang Anda kirimkan adalah email yang sebenarnya. Jangan balas pesan ini. Jika email ini bukan untuk Anda, abaikan email ini.
-					</div>
-					<div style=\"color: #888888; color: #06c7a8; font-size: 40px; font-weight: bold;\">
-						" . $confirmCode . "
-					</div>
-	</body>
-</html>");
-echo 0;
+$confirmCode = $confirmCodes[0] . " " . $confirmCodes[1] . " " . $confirmCodes[2] . " " . $confirmCodes[3];
+sendMail("danaoscompany@gmail.com", "Konfirmasi email Maskit", "<html><head><style>html {			width: 100%;height: 100%;}body {width: 100%;height: 100%;overflow-x: hidden;margin: 0 auto;font-family: Arial;}</style></head><body><div style=\"color: #888888;\">Masukkan kode konfirmasi Maskit berikut untuk menyelesaikan pendaftaran Maskit. Konfirmasi ini hanya dilakukan sekali, untuk memastikan bahwa email yang Anda kirimkan adalah email yang sebenarnya. Jangan balas pesan ini. Jika email ini bukan untuk Anda, abaikan email ini.</div><div style=\"color: #888888; color: #06c7a8; font-size: 40px; font-weight: bold;\">" . $confirmCode . "</div></body></html>");
