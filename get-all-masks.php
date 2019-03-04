@@ -1,6 +1,7 @@
 <?php
 include 'db.php';
-$results = $c->query("SELECT * FROM masks LIMIT 10");
+$start = intval($_POST["start"]);
+$results = $c->query("SELECT * FROM masks LIMIT " . $start . ", 10");
 $masks = [];
 if ($results && $results->num_rows > 0) {
 	while ($row = $results->fetch_assoc()) {
